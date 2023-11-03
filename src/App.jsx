@@ -5,10 +5,10 @@ import { ListPokemon } from './components/ListPokemon'
 function App() {
 
   return(
-    <>
+    <div class="row">
       <Input/>
       <ListPokemon/>
-    </>
+    </div>
   ) 
 }
 

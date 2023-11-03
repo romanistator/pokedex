@@ -7,6 +7,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { PokemonByMove } from './pages/PokemonByMove.jsx'
 
 
 const router = createBrowserRouter([
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path:"/show/:name",
     element:<Show/>
+  },
+  {
+    path:"/PokemonByMove/:name",
+    element:<PokemonByMove/>
   }
   
 ]);

@@ -14,9 +14,9 @@ export function Pokemon(props){
     },[])
 
     return(
-        <article className="card">
+        <article className="shadow card m-3 col-2">
             <img className="card-image-top" src ={result.sprites?.front_default}/>
-            <h3 className="card-title">{result.name}</h3>
+            <h3 className="card-title text-capitalize">{result.name}</h3>
  
             <div className="row">
                 {result.types?.map((type,index)=>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Pokemon } from './Pokemon.jsx'
+import { Link } from 'react-router-dom';
 
 export function Input(){
 
@@ -18,8 +19,9 @@ export function Input(){
     },[])
     return(
         <>
-            <input/>
-            <button onClick={handleChange}>Search</button>
+            <h1>Search your Pokemon</h1>
+            <input onChange={handleChange}/>
+            <Link to={`/show/${search}`}>Show</Link>
             {results.map((result,index)=>
                 <Pokemon 
                     key={index}

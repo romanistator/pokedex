@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Move } from '../components/Move';
+
 
 export function Show() {
   const params = useParams();
@@ -7,7 +9,7 @@ export function Show() {
   const [result, setResult] = useState(null);
   const [versions, setVersions] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [select,setSelect] = useState("")
+  const [select,setSelect] = useState("0")
 
   const choice =(event)=>setSelect(event.target.value)
 
@@ -49,30 +51,35 @@ export function Show() {
         </select>
 
         <div>
-      {result.sprites.front_default && (
-        <img src={result.sprites.front_default} alt="Front Default" />
-      )}
-      {result.sprites.back_default && (
-        <img src={result.sprites.back_default} alt="Back Default" />
-      )}
-      {result.sprites.front_shiny && (
-        <img src={result.sprites.front_shiny} alt="Front Shiny" />
-      )}
-      {result.sprites.back_shiny && (
-        <img src={result.sprites.back_shiny} alt="Back Shiny" />
-      )}
-      {result.sprites.front_female && (
-        <img src={result.sprites.front_female} alt="Front Female" />
-      )}
-      {result.sprites.back_female && (
-        <img src={result.sprites.back_female} alt="Back Female" />
-      )}
-      {result.sprites.front_shiny_female && (
-        <img src={result.sprites.front_shiny_female} alt="Front Shiny Female" />
-      )}
-      {result.sprites.back_shiny_female && (
-        <img src={result.sprites.back_shiny_female} alt="Back Shiny Female" />
-      )}
+        {result.sprites.front_default && (
+          <div>
+            <p>Male</p>
+            <img src={result.sprites.front_default} alt="Front Default" />
+            <img src={result.sprites.back_default} alt="Back Default" />
+          </div>
+   
+        )}
+        {result.sprites.front_shiny && (
+          <div>
+            <p>Shiny Male</p>
+            <img src={result.sprites.front_shiny} alt="Front Shiny" />
+            <img src={result.sprites.back_shiny} alt="Back Shiny" />
+          </div>
+        )}
+        {result.sprites.front_female && (
+          <div>
+            <p>Female</p>
+            <img src={result.sprites.front_female} alt="Front Female" />
+            <img src={result.sprites.back_female} alt="Back Female" />
+          </div>
+        )}
+        {result.sprites.front_shiny_female && (
+          <div>
+            <p>Shiny Female</p>
+            <img src={result.sprites.front_shiny_female} alt="Front Shiny Female" />
+            <img src={result.sprites.back_shiny_female} alt="Back Shiny Female" />
+          </div>
+        )}
     </div>
     <div className="row">
         {result.types?.map((type,index)=>
@@ -84,16 +91,160 @@ export function Show() {
             <p key={index}>{stats.base_stat} : {stats.stat.name}</p>
         )} 
     </div>
-    <div>
-        {result.moves.map((move) =>  
-            {move.version_group_details.map((group, groupIndex) => (
-                console.log(group.version_group.name),
-                console.log(select),
-                select === "0" && group.version_group.name === "red-blue" && (
-                    <p key={groupIndex}>{move.move.name}</p>
-                )
-            ))}
-        )}
+    <div className='row'>
+      {result.moves.map((move) => {
+          return move.version_group_details.map((group, groupIndex) => {
+            if (select === "0" && group.version_group.name === "red-blue") {
+              return <Move key={groupIndex} move={move.move.name}/>
+            } else {
+              return null
+            }
+          })
+        })}
+      {result.moves.map((move) => {
+        return move.version_group_details.map((group, groupIndex) => {
+          if (select === "1" && group.version_group.name === "yellow") {
+            return <Move key={groupIndex} move={move.move.name}/>
+          } else {
+            return null
+          }
+        })
+      })}
+      {result.moves.map((move) => {
+        return move.version_group_details.map((group, groupIndex) => {
+          if (select === "3" && group.version_group.name === "crystal") {
+            return <Move key={groupIndex} move={move.move.name}/>
+          } else {
+            return null
+          }
+        })
+      })}
+      {result.moves.map((move) => {
+        return move.version_group_details.map((group, groupIndex) => {
+          if (select === "4" && group.version_group.name === "gold-silver") {
+            return <Move key={groupIndex} move={move.move.name}/>
+          } else {
+            return null
+          }
+        })
+      })}
+      {result.moves.map((move) => {
+        return move.version_group_details.map((group, groupIndex) => {
+          if (select === "5" && group.version_group.name === "gold-silver") {
+            return <Move key={groupIndex} move={move.move.name}/>
+          } else {
+            return null
+          }
+        })
+      })}
+      {result.moves.map((move) => {
+        return move.version_group_details.map((group, groupIndex) => {
+          if (select === "6" && group.version_group.name === "emerald") {
+            return <Move key={groupIndex} move={move.move.name}/>
+          } else {
+            return null
+          }
+        })
+      })}
+      {result.moves.map((move) => {
+        return move.version_group_details.map((group, groupIndex) => {
+          if (select === "7" && group.version_group.name === "firered-leafgreen") {
+            return <Move key={groupIndex} move={move.move.name}/>
+          } else {
+            return null
+          }
+        })
+      })}
+      {result.moves.map((move) => {
+        return move.version_group_details.map((group, groupIndex) => {
+          if (select === "8" && group.version_group.name === "ruby-sapphire") {
+            return <Move key={groupIndex} move={move.move.name}/>
+          } else {
+            return null
+          }
+        })
+      })}
+      {result.moves.map((move) => {
+        return move.version_group_details.map((group, groupIndex) => {
+          if (select === "9" && group.version_group.name === "diamond-pearl") {
+            return <Move key={groupIndex} move={move.move.name}/>
+          } else {
+            return null
+          }
+        })
+      })}
+      {result.moves.map((move) => {
+        return move.version_group_details.map((group, groupIndex) => {
+          if (select === "10" && group.version_group.name === "heartgold-soulsilver") {
+            return <Move key={groupIndex} move={move.move.name}/>
+          } else {
+            return null
+          }
+        })
+      })}
+      {result.moves.map((move) => {
+        return move.version_group_details.map((group, groupIndex) => {
+          if (select === "11" && group.version_group.name === "platinum") {
+            return <Move key={groupIndex} move={move.move.name}/>
+          } else {
+            return null
+          }
+        })
+      })}
+      {result.moves.map((move) => {
+        return move.version_group_details.map((group, groupIndex) => {
+          if (select === "12" && group.version_group.name === "black-white") {
+            return <Move key={groupIndex} move={move.move.name}/>
+          } else {
+            return null
+          }
+        })
+      })}
+      {result.moves.map((move) => {
+        return move.version_group_details.map((group, groupIndex) => {
+          if (select === "13" && group.version_group.name === "omega-ruby-alpha-sapphire") {
+            return <Move key={groupIndex} move={move.move.name}/>
+          } else {
+            return null
+          }
+        })
+      })}
+      {result.moves.map((move) => {
+        return move.version_group_details.map((group, groupIndex) => {
+          if (select === "14" && group.version_group.name === "x-y") {
+            return <Move key={groupIndex} move={move.move.name}/>
+          } else {
+            return null
+          }
+        })
+      })}
+      {result.moves.map((move) => {
+        return move.version_group_details.map((group, groupIndex) => {
+          if (select === "15" && group.version_group.name === "icons") {
+            return <Move key={groupIndex} move={move.move.name}/>
+          } else {
+            return null
+          }
+        })
+      })}
+      {result.moves.map((move) => {
+        return move.version_group_details.map((group, groupIndex) => {
+          if (select === "16" && group.version_group.name === "ultra-sun-ultra-moon") {
+            return <Move key={groupIndex} move={move.move.name}/>
+          } else {
+            return null
+          }
+        })
+      })}
+      {result.moves.map((move) => {
+        return move.version_group_details.map((group, groupIndex) => {
+          if (select === "17" && group.version_group.name === "icons") {
+            return <Move key={groupIndex} move={move.move.name}/>
+          } else {
+            return null
+          }
+        })
+      })}
     </div>
   </section>
   )
