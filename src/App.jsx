@@ -5,7 +5,7 @@ import { ListPokemon } from './components/ListPokemon'
 function App() {
 
   return(
-    <div class="row">
+    <div className="row">
       <Input/>
       <ListPokemon/>
     </div>

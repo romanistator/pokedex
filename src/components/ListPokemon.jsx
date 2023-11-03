@@ -11,7 +11,7 @@ export function ListPokemon(){
     },[])
   
     return(
-        <div  class="row">
+        <div  className="row">
             {results.map((result,index)=>
                 <Pokemon 
                     key={index}

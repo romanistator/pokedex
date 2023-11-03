@@ -22,7 +22,7 @@ export function Move(props){
                 {result.names.map((languages,index)=>{
                     if(languages.language.name === "en"){ 
                         return(
-                            <table class="table">
+                            <table key={index} className="table">
                              
                                 <tbody>
                                     <tr>

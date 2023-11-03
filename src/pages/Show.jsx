@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Move } from '../components/Move';
-
+import { Link } from 'react-router-dom';
+import { Evolve } from '../components/Evolve'
 
 export function Show() {
   const params = useParams();
@@ -43,13 +44,17 @@ export function Show() {
 
   return (
     <section className='container'>
+      <h1 className='text-capitalize'>{result.name}</h1>
         <h3>Choose your version</h3>
         <select onChange={choice}>
             {versions.map((version, index) => 
+              
                 <option  key={index} value={index}>{version}</option>
             )}
         </select>
-
+        <div className='toto'>
+          <Evolve id={result.id}/>
+        </div>
         <div>
         {result.sprites.front_default && (
           <div>
@@ -83,7 +88,7 @@ export function Show() {
     </div>
     <div className="row">
         {result.types?.map((type,index)=>
-            <a key={index} href={type.type.url} className="col">{type.type.name} </a>
+            <Link key={index} to={`/PokemonByCategories/${type.type.name}`}>{type.type.name}</Link>
         )}
     </div>
     <div>

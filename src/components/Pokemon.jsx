@@ -14,13 +14,13 @@ export function Pokemon(props){
     },[])
 
     return(
-        <article className="shadow card m-3 col-2">
+        <article className="shadow card m-3 col-6 col-md-2">
             <img className="card-image-top" src ={result.sprites?.front_default}/>
             <h3 className="card-title text-capitalize">{result.name}</h3>
  
             <div className="row">
                 {result.types?.map((type,index)=>
-                    <a key={index} href={type.type.url} className="col">{type.type.name} </a>
+                    <Link key={index} to={`/PokemonByCategories/${type.type.name}`}>{type.type.name}</Link>
                 )}
             </div>
             {result.stats?.map((stats,index)=>

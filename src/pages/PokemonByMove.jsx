@@ -17,13 +17,13 @@ export function PokemonByMove(){
         return (
             
             <div className="row">
-            <h1 className="text-capitalize">{results.contest_type.name} learned by pokemons: </h1>
-            {results.learned_by_pokemon.map((result,index)=>
-                <Pokemon 
-                    key={index}
-                    pokemon={result}
-                />
-            )}
+                <h1 className="text-capitalize">{results.name} learned by pokemons: </h1>
+                {results.learned_by_pokemon.map((result,index)=>
+                    <Pokemon 
+                        key={index}
+                        pokemon={result}
+                    />
+                )}
             </div>
         )
     }
