@@ -22,7 +22,7 @@ export function Evolve(props) {
         const evoTwo = result.chain.evolves_to.map((evolve) => {
           return evolve.evolves_to.map((evolveTwo) => {
             return (
-              <Link to={`/Show/${evolveTwo.species.name}`} className="text-capitalize" key={evolveTwo.species.name}>
+              <Link to={`/Show/${evolveTwo.species.name}`} className="text-capitalize col" key={evolveTwo.species.name}>
                 {evolveTwo.species.name}
               </Link>
             )
@@ -32,7 +32,7 @@ export function Evolve(props) {
             return evolve.evolves_to.map((evolveTwo)=>{
                 return evolveTwo.evolves_to.map((evolveFour)=>{
                     return(
-                        <Link to={`/Show/${evolveFour.species.name}`} className="text-capitalize" key={evolveFour.species.name}>
+                        <Link to={`/Show/${evolveFour.species.name}`} className="text-capitalize col" key={evolveFour.species.name}>
                             {evolveFour.species.name}
                         </Link>
                     )
@@ -44,12 +44,12 @@ export function Evolve(props) {
             <h4>Evolutions</h4>
             {result.chain.evolves_to.map((evolve, index) => {
               return (
-                <div key={evolve.species.name}>
-                    <Link to={`/Show/${result.chain.species.name}`} className="text-capitalize" key={result.chain.species.name}>
+                <div className="row container" key={evolve.species.name}>
+                    <Link to={`/Show/${result.chain.species.name}`} className="text-capitalize col" key={result.chain.species.name}>
                         {result.chain.species.name}
                     </Link>
                     <br/>
-                    <Link to={`/Show/${evolve.species.name}`} className="text-capitalize" key={evolve.species.name}>
+                    <Link to={`/Show/${evolve.species.name}`} className="text-capitalize col" key={evolve.species.name}>
                         {evolve.species.name}
                     </Link>
                     <br/>

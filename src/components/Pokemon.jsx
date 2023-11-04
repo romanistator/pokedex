@@ -14,19 +14,19 @@ export function Pokemon(props){
     },[])
 
     return(
-        <article className="shadow card m-3 col-6 col-md-2">
+        <article className="rounded shadow card g-5 m-4  col-6 col-sm-4 col-md-2" >
+
             <img className="card-image-top" src ={result.sprites?.front_default}/>
-            <h3 className="card-title text-capitalize">{result.name}</h3>
- 
-            <div className="row">
-                {result.types?.map((type,index)=>
-                    <Link key={index} to={`/PokemonByCategories/${type.type.name}`}>{type.type.name}</Link>
+            <div style={{height:"4em"}} className="row">
+                {result.types?.map((type,index)=>   
+                    <Link className="logo text-capitalize color-red col-1" key={index} to={`/PokemonByCategories/${type.type.name}`}><img style={{width:"25px"}} src={"../../public/images/" + type.type.name + ".png"}/></Link>   
                 )}
             </div>
-            {result.stats?.map((stats,index)=>
-                    <p key={index}>{stats.base_stat} : {stats.stat.name}</p>
-                )} 
-            <Link to={`/show/${result.name}`}>Show</Link>
+            <h4  className="card-title text-capitalize">{result.name}</h4>
+ 
+
+    
+            <Link className="btn btn-primary" to={`/show/${result.name}`}>Show</Link>
         </article>
     )
 }

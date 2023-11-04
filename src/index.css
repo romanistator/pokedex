@@ -1,3 +1,11 @@
+body{
+  background-image: url(../public/images/pokemon_hd.jpg);
+  background-attachment: fixed;
+  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Playpen Sans', cursive;
+}
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -12,6 +20,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+h1{
+  color:gold;
+  font-weight: 100;
 }
 
 a {
@@ -54,6 +66,37 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+.card{
+  transition: 0.4s;
+  background-image: url("../public/images/a028_p09.jpg");
+  background-size: contain;
+}
+.card:hover{
+  scale:1.1;
+  transition:0.4s;
+}
+.article{
+  background-color: white;
+  font-size: large;
+  border-radius: 5px;
+  max-width: 1500px;
+  margin:auto;
+  opacity:0.6;
+}
+
+.imgAccueil{
+  margin-top:7em;
+  background-attachment: fixed;
+  height:50em;
+  background-image: url("../public/images/b2qrvNd-pokemon-hd-wallpaper.jpg");
+  
+}
+.show{
+  margin-top:7em;
+  opacity:0.9;
+}
+
+
 
 @media (prefers-color-scheme: light) {
   :root {

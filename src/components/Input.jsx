@@ -19,9 +19,12 @@ export function Input(){
     },[])
     return(
         <>
-            <h1>Search your Pokemon</h1>
-            <input onChange={handleChange}/>
-            <Link to={`/show/${search}`}>Show</Link>
+            <h1 className='fw-bold'>Search your Pokemon</h1>
+            <div className='input-group mt-2'>
+                <input className='form-control' onChange={handleChange}/>
+                <Link className='btn btn-danger input-group-text' to={`/show/${search}`}>Show</Link>
+            </div>
+
             {results.map((result,index)=>
                 <Pokemon 
                     key={index}

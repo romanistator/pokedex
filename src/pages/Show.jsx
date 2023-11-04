@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Move } from '../components/Move';
 import { Link } from 'react-router-dom';
 import { Evolve } from '../components/Evolve'
+import { Navbar } from '../components/Navbar';
 
 export function Show() {
   const params = useParams();
@@ -41,9 +42,23 @@ export function Show() {
   if (loading) {
     return <div>Loading...</div>;
   }
+  const tableHeader = (
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Effect</th>
+            <th scope="col">Damages</th>
+            <th scope="col">Power</th>
+            <th scope="col">PP</th>
+        </tr>
+    </thead>
+)
 
   return (
-    <section className='container'>
+    <>
+    <Navbar/>
+    <section className='show container bg-light'>
+      
       <h1 className='text-capitalize'>{result.name}</h1>
         <h3>Choose your version</h3>
         <select onChange={choice}>
@@ -52,8 +67,8 @@ export function Show() {
                 <option  key={index} value={index}>{version}</option>
             )}
         </select>
-        <div className='toto'>
-          <Evolve id={result.id}/>
+        <div className='row'>
+          <Evolve className="col" id={result.id}/>
         </div>
         <div>
         {result.sprites.front_default && (
@@ -96,7 +111,10 @@ export function Show() {
             <p key={index}>{stats.base_stat} : {stats.stat.name}</p>
         )} 
     </div>
+    
     <div className='row'>
+    <table className="custom-table">
+    {tableHeader}
       {result.moves.map((move) => {
           return move.version_group_details.map((group, groupIndex) => {
             if (select === "0" && group.version_group.name === "red-blue") {
@@ -250,7 +268,10 @@ export function Show() {
           }
         })
       })}
+      </table>
     </div>
   </section>
+    </>
+    
   )
 }

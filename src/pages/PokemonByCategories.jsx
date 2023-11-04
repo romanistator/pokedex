@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { Pokemon } from "../components/Pokemon"
+import { Navbar } from "../components/Navbar"
 
 
 export function PokemonByCategories(){
@@ -17,8 +18,10 @@ export function PokemonByCategories(){
 
     if(results){
         return(
-            <div className="row">
-                <h1 className="text-capitalize">Pokemons in category : {results.name} </h1>
+            <>
+            <Navbar/>
+            <div className="row show">
+                <h1 className="text-capitalize">Pokemons in {results.name} category</h1>
                 {results.pokemon.map((result,index)=>
                     <Pokemon 
                         key={index}
@@ -26,6 +29,8 @@ export function PokemonByCategories(){
                     />
                 )}
             </div>
+            </>
+            
 
         )
     }
